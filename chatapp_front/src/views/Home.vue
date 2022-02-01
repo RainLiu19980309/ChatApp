@@ -16,6 +16,7 @@
     </div>
   </section>
 </template>
+
 <script>
 export default {
   name: 'LoginPage',
@@ -35,33 +36,15 @@ export default {
 
   methods: {
     goToChat() {
-      this.$router.push({ name: "Chat"});
+      this.$router.push({ name: "Chat", params: { ChatUserName: this.username || "Anonymous" }});
     }
   }
 
 }
 </script>
+
 <style lang="scss">
-.hidden { display: none; }
-.disabled { opacity: 0.4; }
-#welcome-wrapper { text-align: center; }
-#welcome-wrapper h2 { font-size: 1.5em; margin: 30px 0 10px 0; }
-#welcome-wrapper input {
-  margin-top: 1em;
-  font-size: 1em;
-  width: 40vw;
-  text-align: center;
-  padding: 1em;
-  border: thin solid grey;
-  border-radius: 0.4em;
-}
-#welcome-wrapper button {
-  font-size: 1em;
-  background-color: blue;
-  color: white;
-  padding: 0.8em 1.2em;
-  border: thin solid grey;
-  border-radius: 0.4em;
-  margin: 1em  0.5em;
-}
+  @import "../../src/assets/sass/vars";
+  @import "../../src/assets/sass/home";
+  @import "../../src/assets/sass/reset";
 </style>
