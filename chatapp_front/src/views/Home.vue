@@ -44,7 +44,6 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../src/assets/sass/vars";
-  @import "../../src/assets/sass/home";
-  @import "../../src/assets/sass/reset";
+  @import "@/assets/sass/_home.scss";
+  @import "@/assets/sass/_reset.scss";
 </style>

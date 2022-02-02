@@ -39,6 +39,5 @@ export default {
 </script>
 
 <style lang="scss">
-    @import "../../src/assets/sass/vars";
-    @import "../../src/assets/sass/chat";
+    @import "@/assets/sass/_chat.scss";
 </style>
