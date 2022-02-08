@@ -24,7 +24,7 @@ httpServer.listen(port, () => {
 io.on('connection', (socket) => {
     console.log('a user connected!');
 
-    socket.emit("CONNECTED", socket.id);
+    socket.emit('CONNECTED', socket.id);
 
     socket.on('SEND_MESSAGE', function(data) {
         console.log('SEND_MESSAGE event!', data);
