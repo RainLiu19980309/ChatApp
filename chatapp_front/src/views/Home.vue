@@ -30,7 +30,7 @@ export default {
 
   computed: {
     canJoin: function() {
-      return (this.username.trim() === "")
+      return (this.username.trim() === '')
     }
   },
 

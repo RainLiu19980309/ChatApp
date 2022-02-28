@@ -25,11 +25,14 @@
                 />
 
                 <section id="text-wrapper">
-                    <textarea id="message" v-model="message" placeholder="What's on your mind?"></textarea>
+                    <textarea @keyup="trySendMessage" id="message" v-model="message" placeholder="What's on your mind?"></textarea>
 
                     <button 
                     id="sendMessage"
-                    @click="sendMessage">
+                    @click="sendMessage"
+                    :class="{ 'disabled' : canSend }"
+                    :disabled="canSend"
+                    >
                         <i class="fa fa-paper-plane" aria-hidden="true"></i>
                     </button>
                 </section>
@@ -59,10 +62,19 @@ export default {
 
         this.socket.on('MESSAGE', (message) => {
             // [...] is a the spread operator
-            // short hand way to add something to an array, or put 2 arrays together, etc
+            // short hand way to add something to an array, or put 
+            // 2 arrays together, etc
             vm.messages = [...vm.messages, message];
             console.log(message);
         })
+
+        this.socket.on('SOMEONE_TYPING', (data) => console.log('someone is typing', data));
+    },
+
+    computed: {
+        canSend: function() {
+        return (this.message.trim() === '') // evaluates to true or false
+        }
     },
 
     data() {
@@ -88,6 +100,17 @@ export default {
 
             // empty out the text area and get ready to input a new message
             this.message = '';
+        },
+
+        trySendMessage(event) {
+            console.log('typing a message');
+
+            // if the enter key is pushed AND canSend has a value, then call the sendMessage methods
+            if (event.keyCode === 13 && this.canSend === false) {
+                this.sendMessage();
+            } else {
+                this.socket.emit('USER_TYPING', { user: this. username || "Anonymous" });
+            }
         }
     },
 
