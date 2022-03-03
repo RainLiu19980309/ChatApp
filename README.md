@@ -12,13 +12,14 @@ git clone git@github.com:RainLiu19980309/Liu_Ruiying_ChatAppWithNodeExpressAndTh
 ```sh
 npm install
 ```
-3. Deploy front-end and back-end
+3. Deploy front-end server and back-end server
 ```sh
 npm run deploy
 ```
-4. Copy and paste into your local host
+4. App running at
 ```sh
 http://localhost:8080/
+http://localhost:3000/
 ```
 
 ## Author
