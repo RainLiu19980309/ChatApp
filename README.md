@@ -6,7 +6,7 @@ Use Node, Express and the Vue CLI with socket.io to create a live interactive ch
 
 1. Clone the repo
 ```sh
-git clone git@github.com:RainLiu19980309/Liu_Ruiying_ChatAppWithNodeExpressAndTheVueCLI.git
+git clone git@github.com:RainLiu19980309/ChatApp.git
 ```
 2. Install NPM packages
 ```sh
