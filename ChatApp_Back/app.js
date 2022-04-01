@@ -1,18 +1,27 @@
 import express from 'express';
 import { Server } from 'socket.io';
 import { createServer } from 'http';
+import path from 'path';
+
+const basePath = process.cwd();
+const port = process.env.PORT || 3000;
 
 const app = express();
 const httpServer = createServer(app);
+
+app.use(express.static(path.join(basePath, './dist')));
+
+// server up the front end
+app.get('/', (req, res) => {
+    res.sendFile('index.html');
+})
 
 const io = new Server(httpServer, {
     cors: {
         origin: "*",
         methods: ["GET", "POST"]
     }
-})
-
-const port = process.env.PORT || 3000; 
+}) 
 
 // tell the server to listen for incoming connections
 httpServer.listen(port, () => {
