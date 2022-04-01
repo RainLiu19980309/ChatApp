@@ -1,3 +1,7 @@
 export default {
-    basePath: "http://localhost:3000"
+    // local deployment
+    //basePath: "http://localhost:3000"
+
+    // remote deployment
+    basePath: "/"
 }
