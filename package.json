@@ -1,13 +1,17 @@
 {
-  "name": "liu_ruiying_chatappwithnodeexpressandthevuecli",
+  "name": "chatapp_back",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "(cd ChatApp_Back && node app) & cd chatapp_front && npm run serve"
+    "start": "node app"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "express": "^4.17.2",
+    "socket.io": "^4.4.1"
+  }
 }
